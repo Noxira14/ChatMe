@@ -32,16 +32,23 @@
 		android:usesCleartextTraffic="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name=".MainActivity"
-			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-			android:hardwareAccelerated="true"
-			android:supportsPictureInPicture="true"
-			android:screenOrientation="portrait">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
+    android:name=".MainActivity"
+    android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+    android:hardwareAccelerated="true"
+    android:supportsPictureInPicture="true"
+    android:screenOrientation="portrait">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+
+    <!-- Tambahkan filter SHARE (SEND) di sini -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+</activity>
 		<activity
 			android:name=".LogActivity"
 			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
@@ -307,15 +314,6 @@ android:resource="@xml/provider_paths" />
         <action android:name="android.intent.action.BOOT_COMPLETED" />
     </intent-filter>
 </receiver>
-    
-<activity
-	android:label="@string/app_name"
-	android:name=".MainActivity">
-<intent-filter>
-    <action android:name="android.intent.action.SEND"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-    <data android:mimeType="text/plain" />
-</intent-filter>
-</activity>
 	</application>
 </manifest>
+
