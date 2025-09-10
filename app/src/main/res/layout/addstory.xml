@@ -1,0 +1,101 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/linear_header"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="8dp"
+		android:background="#0C0F18"
+		android:gravity="right"
+		android:orientation="horizontal">
+		<TextView
+			android:id="@+id/textview1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:background="#4267B2"
+			android:text="Post Now"
+			android:textSize="16sp"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF" />
+	</LinearLayout>
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#292C31"
+		android:gravity="center_horizontal|center_vertical"
+		android:orientation="vertical">
+		<LinearLayout
+			android:id="@+id/linear_user"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="#0C0F18"
+			android:gravity="center_vertical"
+			android:orientation="vertical">
+			<ProgressBar
+				android:id="@+id/progressbar1"
+				android:layout_width="match_parent"
+				android:layout_height="8dp"
+				android:indeterminate="false"
+				style="?android:progressBarStyleHorizontal" />
+			<LinearLayout
+				android:id="@+id/linear5"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="8dp"
+				android:gravity="center_vertical"
+				android:orientation="horizontal">
+				<de.hdodenhof.circleimageview.CircleImageView
+					android:id="@+id/circleimageview1"
+					android:layout_width="55dp"
+					android:layout_height="55dp"
+					android:layout_marginLeft="10dp"
+					android:src="@drawable/logo"
+					app:civ_border_width="0dp"
+					app:civ_border_color="#008DCD"
+					app:civ_circle_background_color="#FFFFFF"
+					app:civ_border_overlay="true" />
+				<LinearLayout
+					android:id="@+id/linear4"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:padding="8dp"
+					android:background="@android:color/transparent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/textview_username"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Sunnymavale"
+						android:textSize="16sp"
+						android:textColor="#EAF6FF" />
+					<TextView
+						android:id="@+id/textview_time"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="23min ago"
+						android:textSize="12sp"
+						android:textColor="#7F8C8D"
+						android:layout_weight="1" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<ImageView
+			android:id="@+id/imageview1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/camera"
+			android:scaleType="center" />
+		<VideoView
+			android:id="@+id/videoview1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+	</LinearLayout>
+</LinearLayout>
