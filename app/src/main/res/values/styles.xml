@@ -1,9 +1,3 @@
 <resources>
-<style name="TransparentBottomSheetTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-    <item name="bottomSheetStyle">@style/TransparentBottomSheetStyle</item>
-</style>
-
-<style name="TransparentBottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
-    <item name="background">@android:color/transparent</item>
-</style>
+    <!-- kosong, sudah dipindahkan ke themes.xml -->
 </resources>
