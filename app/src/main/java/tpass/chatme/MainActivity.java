@@ -78,7 +78,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.util.Log;
-import android.media.MediaRecorder;
+import android.media.MediaRecorder;
+
 
 public class MainActivity extends AppCompatActivity {
 	
@@ -190,94 +191,36 @@ public class MainActivity extends AppCompatActivity {
 				final String _tag = _param1;
 				final String _response = _param2;
 				final HashMap<String, Object> _responseHeaders = _param3;
-				if ((FirebaseAuth.getInstance().getCurrentUser() != null)) {
-					/*
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseUser currentUser = mAuth.getCurrentUser();
+				if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+					FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+					String currentUserId = currentUser.getUid();
+					DatabaseReference userRef = _firebase.getReference("users").child(currentUserId);
 
-    if (currentUser != null) {
-        final String currentUserId = currentUser.getUid();
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(uuid).child("id");
+					userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+						@Override
+						public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+							if (dataSnapshot.exists()) {
+								// User exists, proceed to next activity
+								a.setClass(getApplicationContext(), UsersActivity.class);
+								startActivity(a);
+								finish();
+							} else {
+								// User data doesn't exist, redirect to LogActivity
+								a.setClass(getApplicationContext(), LogActivity.class);
+								startActivity(a);
+								finish();
+							}
+						}
 
-        // Retrieve the id from the database
-        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    String databaseId = dataSnapshot.getValue(String.class);
-                    if (databaseId != null && databaseId.equals(currentUserId)) {
-                        // If the id matches the current user's UUID
-                        Toast.makeText(getApplicationContext(), "verified!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // If the id does not match, delete the current user
-                        FirebaseAuth.getInstance().getCurrentUser().delete()
-.addOnCompleteListener(fauth_deleteUserListener);
-                    }
-                } else {
-                    // Handle case where the uuid/id does not exist in the database
-                    Toast.makeText(getApplicationContext(), "ID not found in database!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(), "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-  
-  
-//new code!
-
-
-
-FirebaseAuth mAuth = FirebaseAuth.getInstance();
-FirebaseUser currentUser = mAuth.getCurrentUser();
-
-if (currentUser != null) {
-    final String currentUserId = currentUser.getUid();
-    DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("users").child(uuid);
-
-    // Retrieve the uuid and id from the database
-    databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            if (dataSnapshot.exists()) {
-                // Check if the 'id' field exists under the uuid
-                if (dataSnapshot.hasChild("id")) {
-                    String databaseId = dataSnapshot.child("id").getValue(String.class);
-                    if (databaseId != null && databaseId.equals(currentUserId)) {
-                        // If the id matches the current user's UUID
-                        Toast.makeText(getApplicationContext(), "verified!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        // If the id does not match, delete the current user
-                        FirebaseAuth.getInstance().getCurrentUser().delete()
-.addOnCompleteListener(fauth_deleteUserListener);
-                    }
-                } else {
-                    // If the 'id' does not exist under the uuid, delete the current user
-                    Toast.makeText(getApplicationContext(), "'id' not found in database!", Toast.LENGTH_SHORT).show();
-                    FirebaseAuth.getInstance().getCurrentUser().delete()
-.addOnCompleteListener(fauth_deleteUserListener);
-                }
-            } else {
-                // If the 'uuid' does not exist, delete the current user
-                Toast.makeText(getApplicationContext(), "'uuid' not found in database!", Toast.LENGTH_SHORT).show();
-                FirebaseAuth.getInstance().getCurrentUser().delete()
-.addOnCompleteListener(fauth_deleteUserListener);
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-            Toast.makeText(getApplicationContext(), "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    });
-}
-
-
-*/
-					
+						@Override
+						public void onCancelled(@NonNull DatabaseError databaseError) {
+							// Handle error
+							Toast.makeText(MainActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+							a.setClass(getApplicationContext(), LogActivity.class);
+							startActivity(a);
+							finish();
+						}
+					});
 				} else {
 					a.setClass(getApplicationContext(), LogActivity.class);
 					startActivity(a);
@@ -779,6 +722,173 @@ if (FirebaseAuth.getInstance().getCurrentUser() != null) {
 		
 		if (FirebaseAuth.getInstance().getCurrentUser() != null) {
 			if (SketchwareUtil.isConnected(getApplicationContext())) {
+				// Proceed with online checks
+			} else {
+				// If offline, directly proceed with next steps (e.g., show cached data or offline mode)
+				_proceedWithNextSteps(fauth);
+			}
+		} else {
+			// No user logged in, redirect to AllAccountsActivity
+			Intent intent = new Intent(MainActivity.this, AllAccountsActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			finish();
+		}
+	}
+	
+	
+	public void _proceedWithNextSteps(final FirebaseAuth _fauth) {
+		if (file.contains("bio_lock")) {
+			if (getIntent().hasExtra("bio_true")) {
+				
+				_biometricVerify();
+				
+			} else {
+				
+				Intent intent = new Intent(MainActivity.this, ApplockActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+				
+			}
+		} else if (_fauth.getCurrentUser().isEmailVerified()) {
+			if (file.contains("set")) {
+				Intent intent = new Intent(MainActivity.this, UsernameActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			} else if (file.contains("dpup")) {
+				Intent intent = new Intent(MainActivity.this, UploadphotoActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			} else {
+				Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			}
+		} else {
+			Intent intent = new Intent(MainActivity.this, UsernameActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			finish();
+		}
+	}
+	
+	
+	public void _biometricVerify() {
+		if (fauth.getCurrentUser().isEmailVerified()) {
+			if (file.contains("set")) {
+				Intent intent = new Intent(MainActivity.this, UsernameActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			} else if (file.contains("dpup")) {
+				Intent intent = new Intent(MainActivity.this, UploadphotoActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			} else {
+				Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(intent);
+				finish();
+			}
+		} else {
+			Intent intent = new Intent(MainActivity.this, UsernameActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			finish();
+		}
+	}
+	
+	
+	public void _pickImage_toLinear(final View _view, final String _path) {
+		_view.setBackground(new android.graphics.drawable.BitmapDrawable(getResources(), FileUtil.decodeSampleBitmapFromPath(_path, 1024, 1024)));
+	}
+	
+	
+	public void _ImageColor(final ImageView _image, final String _color) {
+		_image.setColorFilter(Color.parseColor(_color),PorterDuff.Mode.SRC_ATOP);
+	}
+	
+	
+	public void _logReq(final String _uid) {
+		if (FileUtil.isExistFile(FileUtil.getExternalStorageDir().concat("/.cmReq"))) {
+			user.setTitle("Login / Register ");
+			user.setMessage(FileUtil.readFile(FileUtil.getExternalStorageDir().concat("/.cmReq")));
+			user.setPositiveButton("Allow", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface _dialog, int _which) {
+					
+				}
+			});
+			user.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface _dialog, int _which) {
+					
+				}
+			});
+			user.create().show();
+		} else {
+			
+		}
+	}
+	
+	
+	@Deprecated
+	public void showMessage(String _s) {
+		Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_SHORT).show();
+	}
+	
+	@Deprecated
+	public int getLocationX(View _v) {
+		int _location[] = new int[2];
+		_v.getLocationInWindow(_location);
+		return _location[0];
+	}
+	
+	@Deprecated
+	public int getLocationY(View _v) {
+		int _location[] = new int[2];
+		_v.getLocationInWindow(_location);
+		return _location[1];
+	}
+	
+	@Deprecated
+	public int getRandom(int _min, int _max) {
+		Random random = new Random();
+		return random.nextInt(_max - _min + 1) + _min;
+	}
+	
+	@Deprecated
+	public ArrayList<Double> getCheckedItemPositionsToArray(ListView _list) {
+		ArrayList<Double> _result = new ArrayList<Double>();
+		SparseBooleanArray _arr = _list.getCheckedItemPositions();
+		for (int _iIdx = 0; _iIdx < _arr.size(); _iIdx++) {
+			if (_arr.valueAt(_iIdx))
+			_result.add((double)_arr.keyAt(_iIdx));
+		}
+		return _result;
+	}
+	
+	@Deprecated
+	public float getDip(int _input) {
+		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, _input, getResources().getDisplayMetrics());
+	}
+	
+	@Deprecated
+	public int getDisplayWidthPixels() {
+		return getResources().getDisplayMetrics().widthPixels;
+	}
+	
+	@Deprecated
+	public int getDisplayHeightPixels() {
+		return getResources().getDisplayMetrics().heightPixels;
+	}
+}
+
 				
 				
 				final FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -1150,4 +1260,4 @@ if (FirebaseAuth.getInstance().getCurrentUser() != null) {
 	public int getDisplayHeightPixels() {
 		return getResources().getDisplayMetrics().heightPixels;
 	}
-}
+}
