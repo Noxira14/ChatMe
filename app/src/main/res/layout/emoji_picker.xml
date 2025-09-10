@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="?attr/colorSurface">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/emoji_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="?attr/colorSurfaceVariant"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Close Button -->
+        <ImageView
+            android:id="@+id/close_emoji_picker"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_close"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Emojis"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Search Button -->
+        <ImageView
+            android:id="@+id/search_emoji"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_search"
+            android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp" />
+
+    </LinearLayout>
+
+    <!-- Category Tabs -->
+    <HorizontalScrollView
+        android:id="@+id/emoji_categories"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/emoji_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/category_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕒"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_smileys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😀"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👥"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_nature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌿"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🍎"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_activities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚽"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_travel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✈️"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_objects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_symbols"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="❤️"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+            <TextView
+                android:id="@+id/category_flags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏁"
+                android:textSize="20sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginHorizontal="4dp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Emoji Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/emoji_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/emoji_categories"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

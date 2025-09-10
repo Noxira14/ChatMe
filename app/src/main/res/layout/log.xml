@@ -1,148 +1,251 @@
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical">
-	<LinearLayout
-		android:id="@+id/linear1"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:padding="8dp"
-		android:background="@drawable/bg_views_2"
-		android:gravity="center_horizontal|center_vertical"
-		android:orientation="vertical">
-		<LinearLayout
-			android:id="@+id/dv1"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:orientation="vertical"
-			android:layout_weight="1" />
-		<ImageView
-			android:id="@+id/imageview1"
-			android:layout_width="100dp"
-			android:layout_height="100dp"
-			android:layout_marginBottom="20dp"
-			android:padding="8dp"
-			android:src="@drawable/logo"
-			android:scaleType="centerInside" />
-		<LinearLayout
-			android:id="@+id/l_email"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="35dp"
-			android:layout_marginTop="10dp"
-			android:layout_marginRight="35dp"
-			android:layout_marginBottom="8dp"
-			android:padding="7dp"
-			android:background="#EEEEEE"
-			android:gravity="center_vertical"
-			android:orientation="horizontal">
-			<ImageView
-				android:id="@+id/im_email"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="5dp"
-				android:src="@drawable/menu_mail"
-				android:scaleType="center" />
-			<EditText
-				android:id="@+id/tx_email"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
-				android:background="@android:color/transparent"
-				android:textSize="14sp"
-				android:textColor="#000000"
-				android:hint="Email address"
-				android:textColorHint="#607D8B"
-				android:singleLine="true"
-				android:imeOptions="actionNext" />
-		</LinearLayout>
-		<LinearLayout
-			android:id="@+id/l_pass"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="35dp"
-			android:layout_marginTop="8dp"
-			android:layout_marginRight="35dp"
-			android:layout_marginBottom="8dp"
-			android:padding="7dp"
-			android:background="#EEEEEE"
-			android:gravity="center_vertical"
-			android:orientation="horizontal">
-			<ImageView
-				android:id="@+id/im_pass"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginLeft="5dp"
-				android:src="@drawable/menu_secret"
-				android:scaleType="center" />
-			<EditText
-				android:id="@+id/tx_password"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
-				android:background="@android:color/transparent"
-				android:textSize="14sp"
-				android:textColor="#000000"
-				android:hint="Password"
-				android:textColorHint="#607D8B"
-				android:singleLine="true"
-				android:inputType="textPassword"
-				android:imeOptions="actionDone"
-				android:layout_weight="1" />
-		</LinearLayout>
-		<TextView
-			android:id="@+id/textview2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:padding="8dp"
-			android:text="..."
-			android:textSize="12sp"
-			android:textColor="#E6E6FA" />
-		<LinearLayout
-			android:id="@+id/button_continue"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="35dp"
-			android:layout_marginTop="8dp"
-			android:layout_marginRight="35dp"
-			android:layout_marginBottom="8dp"
-			android:padding="7dp"
-			android:background="#007BA7"
-			android:gravity="center_horizontal|center_vertical"
-			android:orientation="horizontal">
-			<TextView
-				android:id="@+id/button_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
-				android:text="Continue"
-				android:textSize="14sp"
-				android:textColor="#FFFFFF" />
-			<ProgressBar
-				android:id="@+id/progressbar1"
-				android:layout_width="wrap_content"
-				android:layout_height="30dp"
-				android:indeterminate="false"
-				style="?android:progressBarStyle" />
-		</LinearLayout>
-		<TextView
-			android:id="@+id/textview3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:padding="8dp"
-			android:text="Change theme"
-			android:textSize="12sp"
-			android:textColor="#EAF6FF" />
-		<LinearLayout
-			android:id="@+id/dv2"
-			android:layout_width="wrap_content"
-			android:layout_height="match_parent"
-			android:padding="8dp"
-			android:orientation="vertical"
-			android:layout_weight="1" />
-	</LinearLayout>
-</LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <!-- Background Gradient -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Main Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <!-- Top Spacer -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <!-- Logo and Animation -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo"
+                    android:scaleType="centerInside" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Welcome Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to ChatMe"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign in to continue"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:alpha="0.9"
+                android:layout_marginBottom="48dp"
+                android:gravity="center" />
+
+            <!-- Login Form Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <!-- Email Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        style="@style/Widget.ChatMe.TextInputLayout"
+                        android:hint="Email"
+                        app:startIconDrawable="@drawable/ic_email"
+                        app:startIconTint="?attr/colorPrimary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Password Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/password_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        style="@style/Widget.ChatMe.TextInputLayout"
+                        android:hint="Password"
+                        app:startIconDrawable="@drawable/ic_lock"
+                        app:startIconTint="?attr/colorPrimary"
+                        app:endIconMode="password_toggle">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Login Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/login"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="Sign In"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
+                        style="@style/Widget.ChatMe.Button"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Forgot Password -->
+                    <TextView
+                        android:id="@+id/forgot_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Forgot Password?"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorPrimary"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="8dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Lottie Animation for Loading -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_login"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="24dp"
+                app:lottie_fileName="lottie/Login.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="false"
+                android:visibility="gone" />
+
+            <!-- Sign Up Section -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account? "
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <TextView
+                    android:id="@+id/signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <!-- Social Login Options -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="?attr/colorOutlineVariant"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  OR  "
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="?attr/colorOutlineVariant"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <!-- Google Sign In Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/google_signin"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Continue with Google"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnSurface"
+                style="@style/Widget.ChatMe.Button.Outlined"
+                app:icon="@drawable/ic_google"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                android:layout_marginBottom="32dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
