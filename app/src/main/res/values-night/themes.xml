@@ -39,7 +39,7 @@
         <item name="shortAnimTime">200</item>
         <item name="mediumAnimTime">300</item>
         <item name="longAnimTime">500</item>
-
+    </style>
     <!-- Rounded Button Style for Dark Theme -->
     <style name="Widget.ChatMe.Button" parent="Widget.Material3.Button">
         <item name="cornerRadius">24dp</item>
