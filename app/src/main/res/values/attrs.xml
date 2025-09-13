@@ -1,0 +1,5 @@
+<resources>
+    <item name="shortAnimTime" type="integer">200</item>
+    <item name="mediumAnimTime" type="integer">400</item>
+    <item name="longAnimTime" type="integer">800</item>
+</resources>
