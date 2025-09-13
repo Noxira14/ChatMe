@@ -31,7 +31,12 @@ android {
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
 	
+    // Legacy support untuk anim time attributes
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+
 	// AndroidX core & Material
 	implementation 'androidx.appcompat:appcompat:1.6.1'
 	implementation 'com.google.android.material:material:1.11.0' // <= turunin ke versi stabil
