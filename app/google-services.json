@@ -1,36 +1,27 @@
 {
   "project_info": {
-    "project_number": "123456789",
-    "project_id": "chatme-dummy",
-    "storage_bucket": "chatme-dummy.appspot.com"
+    "project_number": "369529000980",
+    "firebase_url": "https://demoprobetaa3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "demoprobetaa3",
+    "storage_bucket": "demoprobetaa3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789:android:abcdef123456",
+        "mobilesdk_app_id": "1:369529000980:android:ebb425dda72b0fa9d58301",
         "android_client_info": {
-          "package_name": "tpass.chatme"
+          "package_name": "chatme.tpaas"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "123456789-abcdef.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDummyKeyForBuildPurposes"
+          "current_key": "AIzaSyBjw4t8_bOOf4zUCRITzteyi90aXqcaSpg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "123456789-abcdef.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
