@@ -36,9 +36,9 @@
         <item name="android:windowLightNavigationBar">false</item>
         
         <!-- Animation durations -->
-        <item name="shortAnimTime">200</item>
-        <item name="mediumAnimTime">300</item>
-        <item name="longAnimTime">500</item>
+        <item name="attr/shortAnimTime">200</item>
+        <item name="attr/mediumAnimTime">300</item>
+        <item name="attr/longAnimTime">500</item>
     </style>
     <!-- Rounded Button Style for Dark Theme -->
     <style name="Widget.ChatMe.Button" parent="Widget.Material3.Button">
@@ -57,3 +57,4 @@
         <item name="hintTextColor">@color/md_theme_dark_onSurfaceVariant</item>
     </style>
 </resources>
+

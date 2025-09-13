@@ -1,5 +1,7 @@
 <resources>
-    <item name="shortAnimTime" type="integer">200</item>
-    <item name="mediumAnimTime" type="integer">400</item>
-    <item name="longAnimTime" type="integer">800</item>
+    <declare-styleable name="AppTheme">
+        <attr name="shortAnimTime" format="integer" />
+        <attr name="mediumAnimTime" format="integer" />
+        <attr name="longAnimTime" format="integer" />
+    </declare-styleable>
 </resources>

@@ -1,6 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base Material3 Light Theme -->
     <style name="Base.Theme.ChatMe" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="attr/shortAnimTime">200</item>
+        <item name="attr/mediumAnimTime">300</item>
+        <item name="attr/longAnimTime">500</item>
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
@@ -36,9 +39,6 @@
         <item name="android:windowLightNavigationBar">true</item>
         
         <!-- Animation durations -->
-        <item name="shortAnimTime">200</item>
-        <item name="mediumAnimTime">300</item>
-        <item name="longAnimTime">500</item>
     </style>
 
     <!-- Main App Theme -->
@@ -93,3 +93,4 @@
         <item name="cardElevation">2dp</item>
     </style>
 </resources>
+
