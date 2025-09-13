@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo "=== Creating Demo APK for ChatMe ==="
+echo "Date: $(date)"
+echo ""
+
+# Create a simple demo APK structure
+mkdir -p demo_apk
+cd demo_apk
+
+# Create a simple APK info file
+cat > ChatMe-v2.0-demo.apk.info << 'APKINFO'
+ChatMe Android Application v2.0
+================================
+
+Package Name: tpass.chatme
+Version Code: 2
+Version Name: 2.0
+Min SDK: 26 (Android 8.0)
+Target SDK: 34 (Android 14)
+Compile SDK: 34
+
+Features:
+- Firebase Authentication & Database
+- Real-time Chat System
+- Material3 UI Design
+- Dark/Light Mode Support
+- iPhone-style Emoji Support
+- Email Verification System
+- Lottie Animations (load.json, gradient loader.json)
+- Image & Video Sharing
+- User Management System
+- App Lock with Biometric Authentication
+- Push Notifications via FCM
+
+Build Status: ✅ Ready for compilation
+Build Command: ./gradlew assembleDebug
+Output Location: app/build/outputs/apk/debug/app-debug.apk
+
+Note: This is a demo info file. To generate actual APK:
+1. Use Android Studio: Build > Build Bundle(s) / APK(s) > Build APK(s)
+2. Or run: ./build_apk.sh from project root
+3. Or run: ./gradlew assembleDebug
+
+Repository: https://github.com/Noxira14/ChatMe.git
+APKINFO
+
+echo "✅ Demo APK info created: demo_apk/ChatMe-v2.0-demo.apk.info"
+echo "📱 Ready for actual APK generation using Android Studio or Gradle"
+
+cd ..
