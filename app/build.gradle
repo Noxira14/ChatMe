@@ -9,8 +9,8 @@ android {
 	useLibrary 'org.apache.http.legacy'
 	
 	defaultConfig {
-		applicationId "chatme.tpaas"
-		namespace "chatme.tpaas"
+		applicationId "tpass.chatme"
+		namespace "tpass.chatme"
 		minSdkVersion 26
 		targetSdkVersion 34
 		versionCode 2
