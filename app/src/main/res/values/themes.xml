@@ -36,9 +36,9 @@
         <item name="android:windowLightNavigationBar">true</item>
         
         <!-- Animation durations -->
-        <item name="android:shortAnimTime">200</item>
-        <item name="android:mediumAnimTime">300</item>
-        <item name="android:longAnimTime">500</item>
+        <item name="shortAnimTime">200</item>
+        <item name="mediumAnimTime">300</item>
+        <item name="longAnimTime">500</item>
     </style>
 
     <!-- Main App Theme -->
