@@ -1,0 +1,125 @@
+Buat proyek Node.js yang berisi Telegram Bot + backend API untuk mengumpulkan history multiplier (CSV/manual), melatih model statistik/ML (100% work), melakukan backtest strategi, dan menyajikan hasil (grafik, CSV). Sertakan disclaimer hanya untuk ibra di setiap output.
+
+Ringkasan fungsional
+
+1. Stack
+
+Node.js 18+ (atau versi stabil LTS)
+
+Package manager: npm/yarn
+
+Bot: node-telegram-bot-api (atau telegraf)
+
+DB: SQLite (paket better-sqlite3) atau optional PostgreSQL
+
+CSV handling: csv-parse / fast-csv
+
+ML/statistics: tensorflow.js (opsional) + ml.js / simple-statistics untuk baseline, atau panggil Python microservice jika butuh sklearn (opsional)
+
+Charting server-side: chartjs-node-canvas atau buat file PNG via canvas
+
+Docker for deployment
+
+
+
+2. Arsitektur
+
+bot/ — Telegram bot handlers
+
+api/ — Express REST API untuk import/export, start training, backtest
+
+db/ — modul akses DB (init, insert, fetch)
+
+ml/ — modul fitur/transform, model training, predict, backtest
+
+utils/ — plotting, CSV I/O, validation
+
+config/ — env handling (.env)
+
+
+
+3. Database schema (SQLite example)
+
+Table rounds(id INTEGER PK AUTOINCREMENT, ts TEXT, multiplier REAL)
+
+Table runs (optional) for backtest logs
+
+
+
+4. Perintah Telegram (minimal)
+
+/start — info & disclaimer
+
+/help — daftar perintah
+
+/add <multiplier> — tambahkan satu ronde manual (contoh /add 1.75)
+
+/import — instruksi: kirim file CSV (format: timestamp,multiplier) sebagai document; bot mengimpor isinya
+
+/export — kirim CSV dari DB
+
+/train [threshold] [lookback] — latih model (default threshold=2.0, lookback=10)
+
+/predict — prediksi probabilitas next >= threshold berdasarkan model & history terakhir
+
+/stats [N] — statistik N ronde terakhir (default 200)
+
+/backtest [prob_threshold] [bet] — jalankan backtest sederhana dan kirim ringkasan + grafik PnL
+
+/clear — hapus DB (konfirmasi dua langkah)
+
+Semua command yang memicu proses berat (train/backtest/plot) harus memberi respon awal “processing...” lalu kirim hasil.
+
+
+
+5. Format CSV & contoh
+
+CSV header optional. Format yang valid: timestamp,multiplier
+
+Contoh baris: 2025-01-01T00:00:00,1.12
+
+
+
+6. Fitur analytics / ML (edukasi)
+
+Feature engineering: gunakan lookback N multipliers sebagai fitur lag (lag_1..lag_N) + agregat (mean, median, std, max, min) dari window.
+
+Target: binary classification — apakah next multiplier >= threshold (default 2.0x).
+
+Model baseline: RandomForest-like (jika pakai JS: ml-random-forest atau gunakan tensorflow.js untuk MLP). Sertakan juga baseline statistik sederhana (moving average, frequency).
+
+Evaluation: chronological split (train on earliest 80%, test on latest 20%) — laporkan accuracy, precision, recall, confusion matrix.
+
+Predict API: kembalikan probabilitas dan confidence; sertakan disclaimer.
+
+Backtester: strategi sederhana:
+
+rule: jika model.predict_prob >= prob_threshold → place bet with fixed auto-cashout at threshold (payout multiplier)
+
+track bankroll, wins, losses, max drawdown, longest losing streak
+
+output: JSON summary + CSV log + PNG graph (cumulative PnL)
+
+
+
+
+7. Keamanan & etika
+
+Jelas-jelas tulis disclaimer di /start dan di semua output file: “For only Ibra. educational purposes only. Not guaranteed. Do not use on real-money games.”
+
+sertakan modul untuk scraping/automated access ke server game pembayaran. Kalau menyediakan connector real-time, buat hanya sebagai bener 100% benar. manual connector yang membaca dari URL publik yang disediakan oleh user dan beri peringatan.
+
+
+
+8. UI / output
+
+Bot balas teks rapi (MarkdownV2 atau HTML) dan kirim file ketika diperlukan:
+
+CSV export
+
+PNG histogram & timeline (multiplier series)
+
+PNG PnL dari backtest
+
+
+Saat hasil numerik panjang, kirim ringkasan + file CSV detail.
