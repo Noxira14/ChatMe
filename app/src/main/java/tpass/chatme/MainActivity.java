@@ -119,43 +119,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void _loading_() {
-        final Handler handler = new Handler(Looper.getMainLooper());
-        new Timer().schedule(new TimerTask() {
-            private int i = 0;
-
-            @Override
-            public void run() {
-                handler.post(() -> {
-                    i++;
-                    if (i == 1) {
-                        dot1.setAlpha((float) (1.0));
-                        dot2.setAlpha((float) (0.2));
-                        dot3.setAlpha((float) (0.2));
-                    } else if (i == 2) {
-                        dot1.setAlpha((float) (1.0));
-                        dot2.setAlpha((float) (1.0));
-                        dot3.setAlpha((float) (0.2));
-                    } else if (i == 3) {
-                        dot1.setAlpha((float) (1.0));
-                        dot2.setAlpha((float) (1.0));
-                        dot3.setAlpha((float) (1.0));
-                    } else if (i == 4) {
-                        i = 0;
-                    }
-                });
-            }
-        }, 0, 150);
+    private void _enhancedLoading() {
+        // Start Lottie animation if available
+        if (lottieLoading != null) {
+            lottieLoading.setVisibility(android.view.View.VISIBLE);
+            lottieLoading.playAnimation();
+        }
+        
+        // Enhanced dot animation with better timing
+        EnhancedAnimationHelper.animateTypingIndicator(dot1, dot2, dot3);
+    }
+    
+    private void _updateLoadingStatus(String status) {
+        if (loadingStatus != null) {
+            EnhancedAnimationHelper.animateTextReveal(loadingStatus, status);
+        }
     }
 
-    private void _Tpass_Animation() {
-        ObjectAnimator anim = new ObjectAnimator();
-        anim.setTarget(tpass);
-        anim.setPropertyName("alpha");
-        anim.setFloatValues((float) (0.0), (float) (1.0));
-        anim.setDuration(2000);
-        anim.setInterpolator(new AccelerateDecelerateInterpolator());
-        anim.start();
+    private void _enhancedTpassAnimation() {
+        // Enhanced logo animation with spring effect
+        if (lottieLogo != null) {
+            lottieLogo.setVisibility(android.view.View.VISIBLE);
+            lottieLogo.playAnimation();
+        }
+        
+        // Enhanced tpass animation with better easing
+        EnhancedAnimationHelper.fadeInWithSpring(tpass, 2000, null);
     }
 }
 
