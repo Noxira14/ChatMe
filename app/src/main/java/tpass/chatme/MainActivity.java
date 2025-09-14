@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         dot2 = findViewById(R.id.dot2);
         dot3 = findViewById(R.id.dot3);
         tpass = findViewById(R.id.tpass);
+        loadingStatus = findViewById(R.id.loading_status);
+        lottieLoading = findViewById(R.id.lottie_loading);
+        lottieLogo = findViewById(R.id.lottie_logo);
     }
 
     private void initializeLogic() {
