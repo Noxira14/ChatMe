@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Read status -->
+    <item android:state_selected="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/message_read"/>
+            <size android:width="12dp" android:height="12dp"/>
+        </shape>
+    </item>
+    
+    <!-- Delivered status -->
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/message_delivered"/>
+            <size android:width="12dp" android:height="12dp"/>
+        </shape>
+    </item>
+    
+    <!-- Sent status (default) -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/message_sent"/>
+            <size android:width="12dp" android:height="12dp"/>
+        </shape>
+    </item>
+    
+</selector>

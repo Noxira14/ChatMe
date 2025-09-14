@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="40dp"
+    android:viewportWidth="100"
+    android:viewportHeight="40">
+    
+    <!-- Voice wave bars with different heights -->
+    <path
+        android:pathData="M10,30 L10,10"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M16,35 L16,5"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M22,28 L22,12"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M28,32 L28,8"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M34,25 L34,15"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M40,38 L40,2"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M46,30 L46,10"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M52,26 L52,14"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M58,33 L58,7"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M64,29 L64,11"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M70,35 L70,5"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M76,27 L76,13"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M82,31 L82,9"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+    <path
+        android:pathData="M88,24 L88,16"
+        android:strokeColor="@color/voice_wave_active"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"/>
+    
+</vector>
