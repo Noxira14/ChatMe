@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Online status -->
+    <item android:state_selected="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@android:color/white"/>
+                    <size android:width="16dp" android:height="16dp"/>
+                </shape>
+            </item>
+            <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="2dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/status_online"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    
+    <!-- Away status -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@android:color/white"/>
+                    <size android:width="16dp" android:height="16dp"/>
+                </shape>
+            </item>
+            <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="2dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/status_away"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    
+    <!-- Offline status (default) -->
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="@android:color/white"/>
+                    <size android:width="16dp" android:height="16dp"/>
+                </shape>
+            </item>
+            <item android:top="2dp" android:left="2dp" android:right="2dp" android:bottom="2dp">
+                <shape android:shape="oval">
+                    <solid android:color="@color/status_offline"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    
+</selector>

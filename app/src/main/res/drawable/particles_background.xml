@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Floating particles effect -->
+    <group android:name="particles">
+        
+        <circle
+            android:cx="20"
+            android:cy="30"
+            android:r="2"
+            android:fillColor="#40FFFFFF"/>
+        
+        <circle
+            android:cx="60"
+            android:cy="80"
+            android:r="1.5"
+            android:fillColor="#30FFFFFF"/>
+        
+        <circle
+            android:cx="120"
+            android:cy="40"
+            android:r="2.5"
+            android:fillColor="#50FFFFFF"/>
+        
+        <circle
+            android:cx="180"
+            android:cy="100"
+            android:r="1"
+            android:fillColor="#20FFFFFF"/>
+        
+        <circle
+            android:cx="40"
+            android:cy="160"
+            android:r="3"
+            android:fillColor="#60FFFFFF"/>
+        
+        <circle
+            android:cx="160"
+            android:cy="170"
+            android:r="1.5"
+            android:fillColor="#35FFFFFF"/>
+        
+        <circle
+            android:cx="100"
+            android:cy="120"
+            android:r="2"
+            android:fillColor="#45FFFFFF"/>
+        
+    </group>
+    
+</vector>
