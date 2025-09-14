@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface">
+    android:background="@drawable/splash_background_enhanced">
 
-    <!-- Main Content Container -->
+    <!-- Enhanced Content Container -->
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="24dp"
+        android:padding="32dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,112 +26,166 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!-- Logo Container -->
+        <!-- Enhanced Logo Container -->
         <androidx.cardview.widget.CardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginBottom="32dp"
-            app:cardCornerRadius="60dp"
-            app:cardElevation="8dp"
-            app:cardBackgroundColor="?attr/colorPrimaryContainer">
+            android:id="@+id/logo_card"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="70dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@android:color/white">
 
+            <!-- Lottie animation for logo -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                app:lottie_fileName="lottie/Login.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_speed="0.8" />
+
+            <!-- Fallback logo image -->
             <ImageView
                 android:id="@+id/imageview1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo"
                 android:scaleType="centerInside" />
 
         </androidx.cardview.widget.CardView>
 
-        <!-- App Title -->
+        <!-- Enhanced App Branding -->
         <TextView
+            android:id="@+id/app_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ChatMe"
-            android:textSize="28sp"
+            android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="?attr/colorOnSurface"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:elevation="4dp" />
 
         <TextView
+            android:id="@+id/app_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connect with friends instantly"
+            android:text="Connect • Chat • Share"
             android:textSize="16sp"
-            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textColor="@android:color/white"
+            android:alpha="0.9"
+            android:gravity="center"
             android:layout_marginBottom="48dp"
-            android:gravity="center" />
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.1" />
 
-        <!-- Lottie Animation Container -->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie_loading"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="24dp"
-            app:lottie_fileName="lottie/Login.json"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true" />
+        <!-- Enhanced Loading Animation Container -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/loading_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            android:padding="16dp">
 
-        <!-- Loading Dots (Fallback) -->
+            <!-- Primary Lottie Loading Animation -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_loading"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                app:lottie_fileName="lottie/load.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_speed="1.2" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Fallback Loading Dots -->
         <LinearLayout
             android:id="@+id/linear_loading_dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:visibility="gone">
+            android:layout_marginBottom="24dp">
 
             <View
                 android:id="@+id/dot1"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_margin="4dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="6dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="?attr/colorPrimary" />
+                android:backgroundTint="@android:color/white"
+                android:elevation="2dp" />
 
             <View
                 android:id="@+id/dot2"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_margin="4dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="6dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="?attr/colorPrimary" />
+                android:backgroundTint="@android:color/white"
+                android:elevation="2dp" />
 
             <View
                 android:id="@+id/dot3"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_margin="4dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="6dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="?attr/colorPrimary" />
+                android:backgroundTint="@android:color/white"
+                android:elevation="2dp" />
 
         </LinearLayout>
+
+        <!-- Loading Status Text -->
+        <TextView
+            android:id="@+id/loading_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initializing ChatMe..."
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.8"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-light" />
 
         <!-- Bottom Spacer -->
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1.5" />
 
-        <!-- Developer Info -->
+        <!-- Enhanced Developer Credit -->
         <LinearLayout
             android:id="@+id/Tpass_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:padding="16dp">
+            android:padding="20dp">
 
+            <!-- Developer Logo -->
             <ImageView
                 android:id="@+id/tpass"
-                android:layout_width="48dp"
-                android:layout_height="32dp"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
                 android:src="@drawable/tpass_apps"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="12dp"
+                android:alpha="0.9" />
 
+            <!-- Developer Info -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -142,18 +196,28 @@
                     android:id="@+id/Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Developed by "
-                    android:textSize="12sp"
-                    android:textColor="?attr/colorOnSurfaceVariant" />
+                    android:text="Crafted with "
+                    android:textSize="13sp"
+                    android:textColor="@android:color/white"
+                    android:alpha="0.8"
+                    android:fontFamily="sans-serif-light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❤️"
+                    android:textSize="13sp"
+                    android:layout_marginHorizontal="4dp" />
 
                 <TextView
                     android:id="@+id/admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ibra Decode"
-                    android:textSize="12sp"
+                    android:text=" by Ibra Decode"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-medium" />
 
             </LinearLayout>
 
