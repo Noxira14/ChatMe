@@ -1,5 +1,5 @@
 <resources>
-    <!-- Material3 Light Theme Colors -->
+    <!-- Enhanced Material3 Light Theme Colors -->
     <color name="md_theme_light_primary">#2A90FF</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#D6E7FF</color>
@@ -10,7 +10,7 @@
     <color name="md_theme_light_onSecondaryContainer">#111C2B</color>
     <color name="md_theme_light_tertiary">#6D5677</color>
     <color name="md_theme_light_onTertiary">#FFFFFF</color>
-    <color name="md_theme_light_tertiaryContainer">#F5DAFF</color>
+    <color name="md_theme_light_tertiaryContainer">#F5DAI</color>
     <color name="md_theme_light_onTertiaryContainer">#271131</color>
     <color name="md_theme_light_error">#BA1A1A</color>
     <color name="md_theme_light_errorContainer">#FFDAD6</color>
@@ -31,7 +31,7 @@
     <color name="md_theme_light_outlineVariant">#C3C6CF</color>
     <color name="md_theme_light_scrim">#000000</color>
 
-    <!-- Material3 Dark Theme Colors -->
+    <!-- Enhanced Material3 Dark Theme Colors -->
     <color name="md_theme_dark_primary">#A9C7FF</color>
     <color name="md_theme_dark_onPrimary">#003060</color>
     <color name="md_theme_dark_primaryContainer">#004788</color>
@@ -63,11 +63,41 @@
     <color name="md_theme_dark_outlineVariant">#43474E</color>
     <color name="md_theme_dark_scrim">#000000</color>
 
-    <!-- Chat specific colors -->
+    <!-- Enhanced Chat specific colors -->
     <color name="chat_bubble_sender">#2A90FF</color>
     <color name="chat_bubble_receiver">#F5F7FA</color>
     <color name="chat_bubble_sender_dark">#A9C7FF</color>
     <color name="chat_bubble_receiver_dark">#2A2D32</color>
+    
+    <!-- Status Colors -->
+    <color name="status_online">#4CAF50</color>
+    <color name="status_away">#FF9800</color>
+    <color name="status_offline">#9E9E9E</color>
+    
+    <!-- Message Status Colors -->
+    <color name="message_sent">#9E9E9E</color>
+    <color name="message_delivered">#2196F3</color>
+    <color name="message_read">#4CAF50</color>
+    
+    <!-- Reaction Colors -->
+    <color name="reaction_like">#FF6B6B</color>
+    <color name="reaction_love">#FF1744</color>
+    <color name="reaction_laugh">#FFD54F</color>
+    <color name="reaction_wow">#FFA726</color>
+    <color name="reaction_sad">#64B5F6</color>
+    <color name="reaction_angry">#EF5350</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#667eea</color>
+    <color name="gradient_end">#764ba2</color>
+    <color name="gradient_chat_start">#2A90FF</color>
+    <color name="gradient_chat_end">#1976D2</color>
+    
+    <!-- Enhanced UI Colors -->
+    <color name="voice_wave_active">#2A90FF</color>
+    <color name="voice_wave_inactive">#E0E0E0</color>
+    <color name="typing_indicator">#4CAF50</color>
+    <color name="upload_progress">#2A90FF</color>
     
     <!-- Legacy colors for compatibility -->
     <color name="colorPrimary">@color/md_theme_light_primary</color>
