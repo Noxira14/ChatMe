@@ -126,10 +126,47 @@ public class MainActivity extends AppCompatActivity {
         if (lottieLoading != null) {
             lottieLoading.setVisibility(android.view.View.VISIBLE);
             lottieLoading.playAnimation();
+        } else {
+            // Fallback to dot animation if Lottie not available
+            _fallbackLoadingAnimation();
         }
         
         // Enhanced dot animation with better timing
-        EnhancedAnimationHelper.animateTypingIndicator(dot1, dot2, dot3);
+        if (dot1 != null && dot2 != null && dot3 != null) {
+            EnhancedAnimationHelper.animateTypingIndicator(dot1, dot2, dot3);
+        }
+    }
+    
+    private void _fallbackLoadingAnimation() {
+        // Original dot animation as fallback
+        final Handler handler = new Handler(Looper.getMainLooper());
+        new java.util.Timer().schedule(new java.util.TimerTask() {
+            private int i = 0;
+
+            @Override
+            public void run() {
+                handler.post(() -> {
+                    if (dot1 != null && dot2 != null && dot3 != null) {
+                        i++;
+                        if (i == 1) {
+                            dot1.setAlpha(1.0f);
+                            dot2.setAlpha(0.2f);
+                            dot3.setAlpha(0.2f);
+                        } else if (i == 2) {
+                            dot1.setAlpha(1.0f);
+                            dot2.setAlpha(1.0f);
+                            dot3.setAlpha(0.2f);
+                        } else if (i == 3) {
+                            dot1.setAlpha(1.0f);
+                            dot2.setAlpha(1.0f);
+                            dot3.setAlpha(1.0f);
+                        } else if (i == 4) {
+                            i = 0;
+                        }
+                    }
+                });
+            }
+        }, 0, 150);
     }
     
     private void _updateLoadingStatus(String status) {
@@ -146,7 +183,9 @@ public class MainActivity extends AppCompatActivity {
         }
         
         // Enhanced tpass animation with better easing
-        EnhancedAnimationHelper.fadeInWithSpring(tpass, 2000, null);
+        if (tpass != null) {
+            EnhancedAnimationHelper.fadeInWithSpring(tpass, 2000, null);
+        }
     }
 }
 
