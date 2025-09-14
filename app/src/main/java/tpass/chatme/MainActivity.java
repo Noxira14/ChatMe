@@ -76,9 +76,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeLogic() {
-        _loading_();
-        _Tpass_Animation();
-        new Handler(Looper.getMainLooper()).postDelayed(this::checkLoginStatus, 2000);
+        _enhancedLoading();
+        _enhancedTpassAnimation();
+        _updateLoadingStatus("Initializing ChatMe...");
+        
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            _updateLoadingStatus("Connecting to servers...");
+        }, 800);
+        
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            _updateLoadingStatus("Almost ready...");
+        }, 1600);
+        
+        new Handler(Looper.getMainLooper()).postDelayed(this::checkLoginStatus, 2200);
     }
 
     private void checkLoginStatus() {
