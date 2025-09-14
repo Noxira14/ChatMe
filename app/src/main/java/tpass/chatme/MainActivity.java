@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView dot1, dot2, dot3;
     private ImageView tpass;
+    private TextView loadingStatus;
+    private LottieAnimationView lottieLoading;
+    private LottieAnimationView lottieLogo;
 
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
